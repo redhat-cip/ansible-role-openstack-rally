@@ -11,5 +11,5 @@
 # limitations under the License.
 
 ---
-rally_result_filename: rally.xml
-rally_scenario_filepath: /home/stack/rally-tasks.yml
+openstack_rally_result_filename: rally.xml
+openstack_rally_scenario_filepath: /home/stack/rally-tasks.yml

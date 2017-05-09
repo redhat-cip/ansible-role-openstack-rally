@@ -21,7 +21,7 @@
 - name: Install the Rally packages
   become: true
   package:
-    name: '{{ rally_package_name }}'
+    name: '{{ openstack_rally_package_name }}'
 
 
 - name: Check for db
@@ -52,17 +52,17 @@
 
 - name: Retrieve the rally scenario file
   get_url:
-    url: '{{ rally_file_location }}'
-    dest: '{{ rally_scenario_filepath }}'
+    url: '{{ openstack_rally_file_location }}'
+    dest: '{{ openstack_rally_scenario_filepath }}'
   when: rally_file_location is defined
 
 
 - name: Run specified scenarios
-  shell: source ~/overcloudrc && rally task start '{{ rally_scenario_filepath }}' && rally task report --junit --out rally.xml
+  shell: source ~/overcloudrc && rally task start '{{ openstack_rally_scenario_filepath }}' && rally task report --junit --out rally.xml
 
 
 - name: Fetch junit results
   fetch:
     src: ~/rally.xml
-    dest: "{{ lookup('env', 'PWD') }}/{{ rally_result_filename }}"
+    dest: "{{ lookup('env', 'PWD') }}/{{ openstack_rally_result_filename }}"
     flat: yes
