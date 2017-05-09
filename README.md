@@ -1,6 +1,7 @@
 # ansible-role-rally
 
 An Ansible role to install, configure and run Rally OpenStack test suite
+TEST
 
 ## Role Variables
 
