@@ -58,7 +58,10 @@
 
 
 - name: Run specified scenarios
-  shell: source ~/overcloudrc && rally task start '{{ rally_scenario_filepath }}' && rally task report --junit --out rally.xml
+  shell: |
+    source ~/overcloudrc && \
+    rally task start '{{ rally_scenario_filepath }}' && \
+    rally task report --junit --out rally.xml
 
 
 - name: Fetch junit results
